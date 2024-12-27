@@ -7,7 +7,7 @@
 A step-by-step guide to setting up llama.cpp with ROCm on AMD APUs with awesome performance
 
 Welcome to the ultimate guide to building your own AI AMD inference server! 
-This repository is packed with everything you need to replicate my success of getting llama.cpp work well with ROCm on a Lenovo Ryzen 7 5700U-powered system.
+This repository is packed with everything you need to replicate my success of getting llama.cpp work well with ROCm on a Ryzen 7 5700U-powered system.
 
 Whether you're a hobbyist, developer, or researcher, I hope this guide will help you harness the power of your hardware to run AI models efficiently.
 
@@ -15,7 +15,7 @@ This build is a showcase of how to unlock the potential of an AMD Ryzen 7 5700U 
 
 💻 About the Build
 
-This server was created by repurposing a salvaged Lenovo Ryzen 7 5700U laptop with:
+This server was created by repurposing a salvaged Lenovo V14 G2 Ryzen 7 5700U laptop with:
 
     24GB DDR4 3200MHz RAM (8GB soldered + 16GB stick).
     Running Ubuntu 24 for peak stability and compatibility.
