@@ -30,55 +30,55 @@ This laptop-turned-server is a low-wattage, high-efficiency powerhouse, purpose-
 First, install the necessary ROCm and development packages:
 
 # Install ROCm runtime and development packages
-sudo apt-get install rocm-hip-runtime-dev rocm-hip-sdk clinfo radeontop
-sudo apt-get install rocm-dev rocm-libs rocminfo
+    sudo apt-get install rocm-hip-runtime-dev rocm-hip-sdk clinfo radeontop
+    sudo apt-get install rocm-dev rocm-libs rocminfo
 
 # Install additional ROCm components
-sudo apt-get install rocm-hip-runtime-dev rocm-hip-sdk
+    sudo apt-get install rocm-hip-runtime-dev rocm-hip-sdk
 
 2️⃣ Configure System Repositories
 Enable required Ubuntu repositories and add ROCm sources:
 
 # Add standard Ubuntu repositories
-sudo add-apt-repository main
-sudo add-apt-repository universe
-sudo add-apt-repository multiverse
-sudo apt update
+    sudo add-apt-repository main
+    sudo add-apt-repository universe
+    sudo add-apt-repository multiverse
+    sudo apt update
 
 # Add graphics drivers PPA
-sudo add-apt-repository ppa:oibaf/graphics-drivers
-sudo apt update
-sudo apt upgrade
+    sudo add-apt-repository ppa:oibaf/graphics-drivers
+    sudo apt update
+    sudo apt upgrade
 
 3️⃣ Configure ROCm Repository
 Edit the ROCm repository configuration:
 
 # Edit ROCm repository file
-sudo nano /etc/apt/sources.list.d/rocm.list
+    sudo nano /etc/apt/sources.list.d/rocm.list
 
 # Add this line to the file:
-deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.6 focal main
+    deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.6 focal main
 
 4️⃣ Configure OpenCL
 Set up AMD's OpenCL implementation:
 
 # Create/edit the AMD OpenCL ICD file
-sudo nano /etc/OpenCL/vendors/amdocl64.icd
+    sudo nano /etc/OpenCL/vendors/amdocl64.icd
 
 # Add this line to the file:
-/opt/rocm/opencl/lib/libamdocl64.so
+    /opt/rocm/opencl/lib/libamdocl64.so
 
 5️⃣ Set Up User Permissions and GPU Access
 Configure proper permissions for GPU access:
 
 # Add user to video group
-sudo usermod -aG video $USER
+    sudo usermod -aG video $USER
 
 # Set GPU device permissions
-sudo chmod 660 /dev/dri/renderD128
+    sudo chmod 660 /dev/dri/renderD128
 
 # Install DKMS
-sudo apt install rocm-dkms
+    sudo apt install rocm-dkms
 
 6️⃣ Configure Environment Variables
 Add these environment variables to your shell:
@@ -87,32 +87,33 @@ Add these environment variables to your shell:
 export PATH=$PATH:/opt/rocm/bin:/opt/rocm/opencl/bin
 
 # Configure library path
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib:/opt/rocm/opencl/lib
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib:/opt/rocm/opencl/lib
 
 # Disable SDMA for stability
-export HSA_ENABLE_SDMA=0
+    export HSA_ENABLE_SDMA=0
 
 # Set GPU version override
-export HSA_OVERRIDE_GFX_VERSION=9.0.0
+    export HSA_OVERRIDE_GFX_VERSION=9.0.0
 
 7️⃣ Set Up TensileLibrary Symlink
 Create necessary symlink for GPU support:
 
-sudo ln -s /opt/rocm-6.3.1/lib/rocblas/library/TensileLibrary_lazy_gfx900.dat /opt/rocm-6.3.1/lib/rocblas/library/TensileLibrary_lazy_gfx90c.dat
+    sudo ln -s /opt/rocm-6.3.1/lib/rocblas/library/TensileLibrary_lazy_gfx900.dat /opt/rocm-6.3.1/lib/rocblas/library/TensileLibrary_lazy_gfx90c.dat
 
 8️⃣ Build llama.cpp
 Clone and compile llama.cpp with ROCm support:
 
 # Clone repository
-git clone https://github.com/ggerganov/llama.cpp
-cd llama.cpp
+    git clone https://github.com/ggerganov/llama.cpp
+    cd llama.cpp
 
 # Install build dependencies
-sudo apt install build-essential cmake git rocm-dev
+    sudo apt install build-essential cmake git rocm-dev
 
-🔮 # Configure and build
-sudo cmake -B build -DCMAKE_C_FLAGS="-march=znver2" -DGGML_HIP=ON -DAMDGPU_TARGETS=gfx900:xnack+
-sudo cmake --build build
+🔮 Configure and build
+
+    sudo cmake -B build -DCMAKE_C_FLAGS="-march=znver2" -DGGML_HIP=ON -DAMDGPU_TARGETS=gfx900:xnack+
+    sudo cmake --build build
 
 # Check ROCm info
 rocminfo
