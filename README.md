@@ -115,6 +115,20 @@ Clone and compile llama.cpp with ROCm support:
     sudo cmake -B build -DCMAKE_C_FLAGS="-march=znver2" -DGGML_HIP=ON -DAMDGPU_TARGETS=gfx900:xnack+
     sudo cmake --build build
 
+Explanation of the Flags:
+
+    -DCMAKE_C_FLAGS="-march=znver2"
+        Purpose: Optimizes the build specifically for the AMD Zen 2 architecture (used in the Ryzen 7 5700U).
+
+    -DGGML_HIP=ON
+        Purpose: Enables HIP (Heterogeneous-Compute Interface for Portability) AMD support in llama.cpp.
+        
+    -DAMDGPU_TARGETS=gfx900:xnack+
+        Purpose: Targets the specific GPU architecture of the Ryzen 7 5700U's Vega GPU.
+        Components:
+            gfx900: Specifies the GPU microarchitecture code for the Vega series used in the Ryzen 7 5700U APU.
+            xnack+: Enables XNACK (eXtended Non-ACKnowledge), which allows the GPU to manage pageable memory more efficiently. This is important for systems where memory constraints and paging behavior could impact performance.    
+
 # Check ROCm info
 rocminfo
 
