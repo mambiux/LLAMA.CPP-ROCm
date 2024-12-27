@@ -84,7 +84,7 @@ Configure proper permissions for GPU access:
 Add these environment variables to your shell:
 
 # Add ROCm binaries to PATH
-export PATH=$PATH:/opt/rocm/bin:/opt/rocm/opencl/bin
+    export PATH=$PATH:/opt/rocm/bin:/opt/rocm/opencl/bin
 
 # Configure library path
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib:/opt/rocm/opencl/lib
