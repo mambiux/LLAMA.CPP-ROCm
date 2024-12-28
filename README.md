@@ -9,7 +9,7 @@ A step-by-step guide to setting up llama.cpp with ROCm on AMD APUs with awesome 
 Welcome to the ultimate guide to building your own AI AMD inference server! 
 This repository is packed with everything you need to replicate my success of getting llama.cpp work well with ROCm on a Ryzen 7 5700U-powered system.
 
-Whether you're a hobbyist, developer, or researcher, I hope this guide will help you harness the power of your hardware to run AI models efficiently.
+Whether you're a hobbyist, developer, or researcher, I hope this guide will help you harness the power of your AMD hardware to run AI models efficiently.
 
 This build is a showcase of how to unlock the potential of an AMD Ryzen 7 5700U integrated GPU, delivering exceptional AI inference performance with minimal resources.
 
@@ -171,7 +171,23 @@ System Configuration
     Threads: Configurable (tested with 8, 15, and 16 threads)
     GPU Layers (ngl): Tested with 0 and 33 offloaded layers
 
-🚀 Results Overview
+🚀 Results Overview 
+
+Benchmark Results for AMD Ryzen APU Inference with llama.cpp
+
+This report highlights the performance of llama.cpp running on an AMD Ryzen 7 5700U APU using ROCm. Tests were conducted with the Llama-3.1-8B-Lexi-Uncensored-V2.i1-Q4_K_M model, and results are summarized to showcase the impact of GPU layer offloading, thread counts, and other parameters on tokens per second (t/s) for prompt processing (pp64) and text generation (tg128).
+System Configuration
+
+    Model: Llama-3.1-8B-Lexi-Uncensored-V2.i1-Q4_K_M
+    Hardware: AMD Ryzen 7 5700U APU with integrated Radeon Graphics
+    Software: llama.cpp with ROCm backend
+    Model Size: 4.58 GiB, 8.03 billion parameters
+    Batch Size: 512 tokens
+    Prompt Tokens (pp64): 64 tokens
+    Generated Tokens (tg128): 128 tokens
+    Threads: Configurable (tested with 8, 15, and 16 threads)
+    GPU Layers (ngl): Tested with 0 and 33 offloaded layers
+
 GPU Layers (ngl)	Threads	Batch Size	        Prompt-Processing (t/s)	                Text Generation (t/s)
 0	    15	             512	                18.54 ± 0.00                                 6.27 ± 0.00
 33	    15	             512	                20.16 ± 0.00	                             6.82 ± 0.00
@@ -179,5 +195,24 @@ GPU Layers (ngl)	Threads	Batch Size	        Prompt-Processing (t/s)	            
 33	    8	             512	                20.12 ± 0.00	                             6.76 ± 0.00
 33	    16	             512	                20.22 ± 0.00	                             6.84 ± 0.00
 
+GPU Offloading (ngl):
 
+    Offloading 33 layers to the APU improves prompt processing speed from 18.54 t/s to 20.16 t/s (approx. 8.7% increase).
+    Text generation speed sees a marginal improvement from 6.27 t/s to 6.82 t/s 
 
+Threads:
+
+    Increasing threads to 16 provides the best performance for both pp64 and tg128 tests.
+    At 16 threads with 33 GPU layers, prompt processing achieves 20.22 t/s, and text generation reaches 6.84 t/s, the highest observed.
+
+Why These Results Are Impressive
+
+While the reported tokens per second may not sound groundbreaking compared to high-end discrete GPUs, the real achievement lies in completely offloading all 33 model layers to the integrated GPU. This offloading frees up 15 CPU threads, with only one CPU thread being utilized for llama.cpp, leaving the rest available for running additional workloads such as:
+
+    Whisper.cpp for real-time transcription or speech processing.
+    Other concurrent programs like data pre-processing, serving HTTP requests, or lightweight orchestration tasks.
+
+This setup highlights the efficiency of AMD APUs, demonstrating how integrated GPUs can handle full AI inference pipelines while reserving CPU resources for other tasks. It's a testament to how low-power, cost-efficient hardware can be repurposed for multipurpose AI workloads.
+Conclusion
+
+The AMD Ryzen 7 5700U APU with ROCm delivers a versatile and energy-efficient solution for AI inference. By offloading all layers to the integrated GPU and leaving CPU resources free, this configuration exemplifies a practical and affordable approach for developers and researchers. It is ideal for building lightweight AI servers capable of running multiple processes simultaneously.
