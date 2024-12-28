@@ -1,4 +1,4 @@
-# LLAMA.CPP-ROCm
+# LLAMA-ROCm-APU
 
 🚀 Llama on ROCm AMD Ryzen APU Guide 🧠⚡
 
