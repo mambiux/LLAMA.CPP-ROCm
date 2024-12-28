@@ -1,7 +1,8 @@
 # LLAMA.CPP-ROCm
 
-🚀 AI Inference Server Guide: Optimized on Ryzen 7 5700U on Ubuntu 24 🧠⚡
-    🔥 Unleashing Llama.cpp on ROCm AMD Ryzen APU: Experimental AI Inference Server 🔥
+🚀 Llama on ROCm AMD Ryzen APU Guide 🧠⚡
+
+    🔥 Unleashing : Experimental llama.cpp ROCm APU AI Inference Server 🔥
 
 A step-by-step guide to setting up llama.cpp with ROCm on AMD APUs with awesome performance
 
