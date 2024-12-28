@@ -211,6 +211,7 @@ While the reported tokens per second may not sound groundbreaking compared to hi
 And this only uses 25 Watts!⚡ for a 8B Q4KM Quantized LLama model 🧠 with 20.1 tokens/sec for pompt processing and 6.8 tokens/sec for text generation offloading all layers to GPU and only utilizing one CPU thread !
 
 This setup highlights the efficiency of AMD APUs, demonstrating how integrated GPUs can handle full AI inference pipelines while reserving CPU resources for other tasks. It's a testament to how low-power, cost-efficient hardware can be repurposed for multipurpose AI workloads.
-Conclusion
 
-The AMD Ryzen 7 5700U APU with ROCm delivers a versatile and energy-efficient solution for AI inference. By offloading all layers to the integrated GPU and leaving CPU resources free, this configuration exemplifies a practical and affordable approach for developers and researchers. It is ideal for building lightweight AI servers capable of running multiple processes simultaneously.
+🧠 Conclusion:
+
+The AMD Ryzen 7 5700U APU with ROCm delivers a versatile and energy-efficient solution for AI inference. By offloading all layers to the integrated GPU and leaving CPU resources free, this configuration exemplifies a practical and affordable approach for developers and researchers. It is ideal for building lightweight AI servers capable of running multiple processes simultaneously. It shows ROCm has great potential to unlock hidden compute power.
