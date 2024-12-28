@@ -148,12 +148,6 @@ radeontop
 
 ./llama.cpp -m models/your-model.bin -p "Your prompt here"
 
-🙌 Acknowledgments
-
-Big thanks to:
-
-    Llama.cpp for enabling lightweight LLM inference.
-    The open-source community for ROCm and AMD GPU support.
 
 This guide highlights the untapped potential of AMD Ryzen APUs for AI workloads. Dive in, experiment, and discover the future of low-cost, efficient AI inference. Let me know if anything is unclear or needs further refinement! 🚀
 
@@ -215,3 +209,10 @@ This setup highlights the efficiency of AMD APUs, demonstrating how integrated G
 🧠 Conclusion:
 
 The AMD Ryzen 7 5700U APU with ROCm delivers a versatile and energy-efficient solution for AI inference. By offloading all layers to the integrated GPU and leaving CPU resources free, this configuration exemplifies a practical and affordable approach for developers and researchers. It is ideal for building lightweight AI servers capable of running multiple processes simultaneously. It shows ROCm has great potential to unlock hidden compute power.
+
+🙌 Acknowledgments
+
+Big thanks to:
+
+    Llama.cpp for enabling lightweight LLM inference.
+    The open-source community for ROCm and AMD GPU support.
