@@ -190,13 +190,6 @@ System Configuration
     Threads: Configurable (tested with 8, 15, and 16 threads)
     GPU Layers (ngl): Tested with 0 and 33 offloaded layers
 
-Speed Test
-    GPU Layers (ngl)	Threads	Batch Size	        Prompt-Processing (t/s)	                Text Generation (t/s)
-    0	    15	             512	                18.54 ± 0.00                                 6.27 ± 0.00
-    33	    15	             512	                20.16 ± 0.00	                             6.82 ± 0.00
-    0	    8	             512	                18.51 ± 0.00	                             8.01 ± 0.00
-    33	    8	             512	                20.12 ± 0.00	                             6.76 ± 0.00
-    33	    16	             512	                20.22 ± 0.00	                             6.84 ± 0.00
 
 GPU Offloading (ngl):
 
