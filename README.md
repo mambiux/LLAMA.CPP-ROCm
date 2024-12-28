@@ -1,9 +1,7 @@
 # LLAMA.CPP-ROCm
 
-
-🔥 Unleashing Llama.cpp on AMD Ryzen APU: Experimental AI Inference Server 🔥
-
 🚀 AI Inference Server Guide: Optimized on Ryzen 7 5700U on Ubuntu 24 🧠⚡
+🔥 Unleashing Llama.cpp on ROCm AMD Ryzen APU: Experimental AI Inference Server 🔥
 
 A step-by-step guide to setting up llama.cpp with ROCm on AMD APUs with awesome performance
 
@@ -157,7 +155,28 @@ Big thanks to:
 This guide highlights the untapped potential of AMD Ryzen APUs for AI workloads. Dive in, experiment, and discover the future of low-cost, efficient AI inference. Let me know if anything is unclear or needs further refinement! 🚀
 
 
+Benchmark Results for AMD Ryzen APU Inference with llama.cpp
 
+This report highlights the performance of llama.cpp running on an AMD Ryzen 7 5700U APU using ROCm. Tests were conducted with the Llama-3.1-8B-Lexi-Uncensored-V2.i1-Q4_K_M model, and results are summarized to showcase the impact of GPU layer offloading, thread counts, and other parameters on tokens per second (t/s) for prompt processing (pp64) and text generation (tg128).
+System Configuration
+
+    Model: Llama-3.1-8B-Lexi-Uncensored-V2.i1-Q4_K_M
+    Hardware: AMD Ryzen 7 5700U APU with integrated Radeon Graphics
+    Software: llama.cpp with ROCm backend
+    Model Size: 4.58 GiB, 8.03 billion parameters
+    Batch Size: 512 tokens
+    Prompt Tokens (pp64): 64 tokens
+    Generated Tokens (tg128): 128 tokens
+    Threads: Configurable (tested with 8, 15, and 16 threads)
+    GPU Layers (ngl): Tested with 0 and 33 offloaded layers
+
+🚀 Results Overview
+GPU Layers (ngl)	Threads	Batch Size	        Prompt-Processing (t/s)	                Text Generation (t/s)
+0	    15	             512	                18.54 ± 0.00                                 6.27 ± 0.00
+33	    15	             512	                20.16 ± 0.00	                             6.82 ± 0.00
+0	    8	             512	                18.51 ± 0.00	                             8.01 ± 0.00
+33	    8	             512	                20.12 ± 0.00	                             6.76 ± 0.00
+33	    16	             512	                20.22 ± 0.00	                             6.84 ± 0.00
 
 
 
