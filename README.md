@@ -11,7 +11,7 @@ This repository is packed with everything you need to replicate my success of ge
 
 Whether you're a hobbyist, developer, or researcher, I hope this guide will help you harness the power of your AMD hardware to run AI models efficiently.
 
-It only uses 25 Watts!⚡ for a 8B Q4KM Quantized LLama model 🧠 with 20.1 tokens/sec for pompt processing and 6.8 tokens/sex for text generation offloading all layers to GPU and only utilizing one CPU thread !
+It only uses 25 Watts!⚡ for a 8B Q4KM Quantized LLama model 🧠 with 20.1 tokens/sec for pompt processing and 6.8 tokens/sec for text generation offloading all layers to GPU and only utilizing one CPU thread !
 
 This build is a showcase of how to unlock the potential of an AMD Ryzen 7 5700U integrated GPU, delivering exceptional AI inference performance with minimal resources.
 
@@ -215,7 +215,7 @@ While the reported tokens per second may not sound groundbreaking compared to hi
     Whisper.cpp for real-time transcription or speech processing.
     Other concurrent programs like data pre-processing, serving HTTP requests, or lightweight orchestration tasks.
 
-And this only uses 25 Watts!⚡ for a 8B Q4KM Quantized LLama model 🧠 with 20.1 tokens/sec for pompt processing and 6.8 tokens/sex for text generation offloading all layers to GPU and only utilizing one CPU thread !
+And this only uses 25 Watts!⚡ for a 8B Q4KM Quantized LLama model 🧠 with 20.1 tokens/sec for pompt processing and 6.8 tokens/sec for text generation offloading all layers to GPU and only utilizing one CPU thread !
 
 This setup highlights the efficiency of AMD APUs, demonstrating how integrated GPUs can handle full AI inference pipelines while reserving CPU resources for other tasks. It's a testament to how low-power, cost-efficient hardware can be repurposed for multipurpose AI workloads.
 Conclusion
