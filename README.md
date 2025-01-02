@@ -146,7 +146,7 @@ radeontop
     Run Llama.cpp:
     Start using your AI inference server by running models:
 
-./llama.cpp -m ./models/your-model.gguf -p "Your prompt here" -ngl 33
+    ./llama.cpp -m ./models/your-model.gguf -p "Your prompt here" -ngl 33
 
 -ngl is the ammount of layers to offload to the gpu, in the case of a llama-8B i have successfully offloaded 33 out of 33 layers to it
 
